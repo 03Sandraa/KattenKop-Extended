@@ -1,0 +1,248 @@
+:root{
+    --silhouetteColor: #555277;
+    --contrastColor: #F8DCE3;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--contrastColor);
+}
+
+.illustrationWrapper{
+    /* margin: auto;
+    max-width: 100%;
+    flex-shrink: 1; */
+    transform: scale(0.5);
+}
+
+.kattenKop{
+    width: 30rem;
+    height: 27rem;
+    position: relative;
+
+}
+
+.kattenKop::before{
+    content: "";
+    background-color: var(--silhouetteColor);
+    display: block;
+    position: absolute;
+    top: 2rem;
+    left: 0;
+
+    border-radius: 50%;
+    height: 25rem;
+    width: 100%;
+}
+
+.oog, .neus{
+    position: absolute;
+    background-color: var(--contrastColor);
+}
+
+/* ---------- Oor ------------ */
+
+.oor{
+    transform-origin: bottom center;
+    animation: 4s linear 5s infinite normal backwards running oorBewegingLinks;
+    width: 100%;
+    height: 100%;
+}
+
+.oorLinks, .oorRechts{
+    width: 33%;
+    height: 45%;
+    border-radius: 0% 100% 42% 58% / 0% 65% 35% 100% ;
+    background-color: var(--silhouetteColor);
+    position: absolute;
+}
+
+.oorLinks{
+    top: 0;
+    left: 0; 
+}
+
+.oorRechts{
+    transform: scaleX(-1);
+
+    top: 0;
+    right: 0;
+}
+
+@keyframes oorBewegingLinks{
+    0%, 90%, 100%{
+        transform: scale(1, 1);
+    }
+    95%{
+        transform: scale(1.1, 0.95);
+    }
+}
+
+/* ---------- Oog ------------ */
+
+.oog{
+    width: 27%;
+    height: 25%;
+    border-radius: 22% 78% 55% 45% / 53% 100% 0% 47% ;
+    overflow: hidden;
+    animation: 10s linear 5s infinite normal both running knipperenOgen;
+}
+
+@keyframes knipperenOgen{
+    0%, 99%, 100%{
+        transform: scaleY(1);
+    }
+    99.5%{
+        transform: scaleY(0);
+    }
+}
+
+.oogWrapper > div:first-of-type{
+    top: 37%;
+    left: 13%;
+}
+
+.oogWrapper > div:last-of-type{
+    /* transform: scaleX(-1); */
+    border-radius: 100% 29% 80% 0% / 100% 25% 65% 10%;
+
+    top: 37%;
+    right: 13%;
+}
+
+.oogWrapper > div:last-of-type .pupil{
+    transform: scaleX(1);
+}
+
+.pupil{
+    width: 20%;
+    height: 60%;
+    border-radius: 45%;
+    margin: 2rem auto;
+
+    background-color: var(--silhouetteColor);
+}
+
+/* ---------- Neus ------------ */
+
+.neus{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 25% 75% 75% 25% / 53% 50% 50% 47%;
+
+    transform: rotate(90deg);
+
+    top: 16rem;
+    left:-webkit-calc(50% - 1.5rem);
+    left:-moz-calc(50% - 1.5rem);
+    left:calc(50% - 1.5rem);
+}
+
+.neus::before, .neus::after{
+    content: "";
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 100%;
+    background-color: var(--silhouetteColor);
+    z-index: 1;
+
+    position: absolute;
+}
+
+.neus::before{
+    right: 0.7rem;
+}
+
+.neus::after{
+    bottom: 0;
+    right: 0.7rem;
+}
+
+/* ---------- Lichaam ------------ */
+
+.kattenLichaam{
+    width: 15rem;
+    height: 23rem;
+    margin: auto;
+    margin-top: -5rem;
+    border-radius: 50% 50% 50% 20%;
+    z-index: -1;
+    background-color: var(--silhouetteColor);
+    position: relative;
+}
+
+.kattenLichaam::before{
+    content: "";
+    width: 80%;
+    height: 23%;
+    position: absolute;
+    bottom: 0;
+    left: -12.5%;
+    border-radius: 212% 83% 0% 50%;
+    background-color: var(--silhouetteColor);
+}
+
+.kattenLichaam::after{
+    content: "";
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    right: -18%;
+    background-color: var(--silhouetteColor);
+    border-radius: 0% 93% 23% 0%;
+}
+
+.staart{
+transform: rotate(90deg);
+transform-origin: bottom;
+position: absolute;
+bottom: 1.5rem;
+right: 0;
+}
+
+.staart div{
+    position: absolute;
+    transform: rotate(10deg);
+    background-color: var(--silhouetteColor);
+    z-index: -2;
+    border-radius: 35% 58% 0 0 ;
+    width: 3rem;
+    height: 5rem;
+    animation: 4s linear 5s infinite normal backwards running staartBeweging;
+    transform-origin: bottom right;
+}
+
+.staart > div{
+    bottom: 0.75rem;
+    right: -1.5rem;
+    transform: rotate(10deg);
+}
+
+.staart > div  div{
+    bottom: 3rem;
+    right: 0rem;
+}
+
+.staart > div > div > div > div > div > div > div{
+    border-radius: 25% 82% 0 0;
+}
+
+@keyframes staartBeweging{
+    0%,  100%{
+        transform: rotate(-3deg);
+    }
+    50%{
+        transform: rotate(-27deg);
+    }
+}
